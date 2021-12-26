@@ -1,0 +1,50 @@
+
+<html lang="en">
+    <body>
+        <meta charset="utf-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script type="module">
+            import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+            window.Stimulus = Application.start()
+        
+            Stimulus.register("aim", class extends Controller {
+              static targets = [ "input", "output" ]
+
+              addMessage(screenname, msg) {
+                this.outputTarget.innerHTML += `<div class="chat-msg">
+                                                  <div class="screename inline-block">${screenname}:&nbsp;</div>
+                                                  <div class="msg-body inline-block">${msg}</div>
+                                                </div>`
+              }
+
+              sendMessage() {
+                  this.addMessage(this.screennamePlayer(), this.inputTarget.value)
+                  this.inputTarget.value = ''
+              }
+
+              screennameComp() {
+                  return 'MysteryEnt'
+              }
+
+              screennamePlayer() {
+                  return 'RayzorFace69'
+              }
+            })
+          </script>
+          <h1>Welcome 2 AIM</h1>
+          <div data-controller="aim">
+              <div id="aim-window" class="border-2">
+                <div id="chat-output"
+                     class="p-2 border-2"
+                     data-aim-target="output">
+                </div>
+                <input type="text"
+                       id="chat-input"
+                       class="p-2 border-2"
+                       data-aim-target="input"
+                       data-action="click->aim#sendMessage">
+            
+              </div>
+          </div>
+    </body>
+</html>
