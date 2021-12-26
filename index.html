@@ -1,7 +1,8 @@
 
 <html lang="en">
-    <body>
+    <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" media="all" href="./index.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <script type="module">
             import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
@@ -12,7 +13,7 @@
 
               addMessage(screenname, msg) {
                 this.outputTarget.innerHTML += `<div class="chat-msg">
-                                                  <div class="screename inline-block">${screenname}:&nbsp;</div>
+                                                  <div class="screenname inline-block">${screenname}:&nbsp;</div>
                                                   <div class="msg-body inline-block">${msg}</div>
                                                 </div>`
               }
@@ -33,6 +34,8 @@
               }
             })
           </script>
+    </head>
+    <body>
           <h1>Welcome 2 AIM</h1>
           <div data-controller="aim">
               <div id="aim-window" class="border-2">
