@@ -18,6 +18,8 @@
               }
 
               sendMessage() {
+                  if (event.type == 'keydown' && event.key != 'Enter') {return}
+
                   this.addMessage(this.screennamePlayer(), this.inputTarget.value)
                   this.inputTarget.value = ''
               }
@@ -42,7 +44,7 @@
                        id="chat-input"
                        class="p-2 border-2"
                        data-aim-target="input"
-                       data-action="click->aim#sendMessage">
+                       data-action="keydown->aim#sendMessage">
             
               </div>
           </div>
