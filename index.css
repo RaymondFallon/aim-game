@@ -51,6 +51,7 @@
 #action-btn-row {
     padding-left: 2px;
     padding-right: 2px;
+    min-height: 50px;
 }
 
 .screenname {

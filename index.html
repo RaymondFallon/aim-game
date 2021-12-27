@@ -9,7 +9,11 @@
             window.Stimulus = Application.start()
         
             Stimulus.register("aim", class extends Controller {
-              static targets = [ "input", "output" ]
+              static targets = [ "input", "output", "warnLevelOutput" ]
+
+              initialize() {
+                this.warnLevel = 0
+              }
 
               addMessage(msg, is_outgoing) {
                 let screenname = is_outgoing ? this.screennamePlayer() : this.screennameComp()
@@ -50,6 +54,12 @@
               screennamePlayer() {
                   return 'RayzorFace69'
               }
+
+              warn() {
+                  this.warnLevel = Math.min(this.warnLevel + 5, 100)
+                  console.log(`Warn level is ${this.warnLevel}`)
+                  this.warnLevelOutputTarget.innerHTML = `${this.warnLevel}%`
+              }
             })
           </script>
     </head>
@@ -64,7 +74,13 @@
                     <span class="menu-item">Edit</span>
                     <span class="menu-item">Insert</span>
                     <span class="menu-item">People</span>
-                    <span class="menu-item-warning">MysteryEnt's Warning Level: 0%</span>
+                    <span class="menu-item-warning">
+                        MysteryEnt's Warning Level: 
+                        <span id='warn-level-output'
+                              data-aim-target="warnLevelOutput">
+                              0%
+                        </span>
+                    </span>
                 </div>
                 <div id="chat-output"
                      class="p-2 border-2"
@@ -76,15 +92,20 @@
                        rows="3"
                        data-aim-target="input"
                        data-action="keydown->aim#sendMessage"></textarea>
-                <div id="action-btn-row">
+                <div id="action-btn-row" class="row flex justify-between">
                     <img src="http://coolbuddy.com/icon/buddyicons/buddy149.gif"
                          alt="Vampire buddy icon"
-                         class="inline-block">
-                    <button id="msg-send-btn"
-                            class="border inline-block float-right p-2"
-                            data-action="aim#sendMessage">
-                        SEND
-                    </button>
+                         class="inline-block hidden">
+                        <button id="msg-warn-btn"
+                                class="border inline-block float-right p-2"
+                                data-action="aim#warn">
+                            WARN
+                        </button>
+                        <button id="msg-send-btn"
+                                class="border inline-block float-right p-2"
+                                data-action="aim#sendMessage">
+                            SEND
+                        </button>
                 </div>
               </div>
           </div>
