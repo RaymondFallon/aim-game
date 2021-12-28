@@ -28,6 +28,13 @@
                 this.outputTarget.scrollTop = this.outputTarget.scrollHeight;
               }
 
+              exportViaEmail() {
+                  document.location.href = "mailto:"
+                    + "?subject=" + encodeURIComponent('Temporary Default Subject')
+                    + "&body=" + encodeURIComponent(this.outputTarget.innerText);
+                //event.target.innerHTML = `<a href=${href}>eMail</a>`
+              }
+
               randomPhrase() {
                   let phrases = ["not here!", "busy, sorry!", "go away!"]
                   return phrases[Math.floor(Math.random()*phrases.length)]
@@ -100,6 +107,11 @@
                                 class="border inline-block float-right p-2"
                                 data-action="aim#warn">
                             WARN
+                        </button>
+                        <button id="msg-warn-btn"
+                                class="border inline-block float-right p-2"
+                                data-action="aim#exportViaEmail">
+                            eMail
                         </button>
                         <button id="msg-send-btn"
                                 class="border inline-block float-right p-2"
