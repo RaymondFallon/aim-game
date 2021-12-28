@@ -29,10 +29,10 @@
               }
 
               exportViaEmail() {
-                  document.location.href = "mailto:"
+                  let href = "mailto:"
                     + "?subject=" + encodeURIComponent('Temporary Default Subject')
                     + "&body=" + encodeURIComponent(this.outputTarget.innerText);
-                //event.target.innerHTML = `<a href=${href}>eMail</a>`
+                  window.open(href, '_blank')
               }
 
               randomPhrase() {
