@@ -9,7 +9,7 @@
             window.Stimulus = Application.start()
         
             Stimulus.register("aim", class extends Controller {
-              static targets = [ "input", "output", "warnLevelOutput" ]
+              static targets = [ "input", "output", "playerScreenname", "warnLevelOutput" ]
 
               initialize() {
                 this.warnLevel = 0
@@ -59,7 +59,10 @@
               }
 
               screennamePlayer() {
-                  return 'RayzorFace69'
+                  if (this.playerScreennameTarget.value == '') {
+                      return 'Me'
+                  }
+                  else { return this.playerScreennameTarget.value }
               }
 
               warn() {
@@ -71,7 +74,16 @@
           </script>
     </head>
     <body>
-          <div data-controller="aim">
+          <div id="game-window" data-controller="aim">
+            <label id="player-screenname-label">
+                Player Screenname:
+                <input id="player-screenname-input"
+                       type="text"
+                       placeholder="Screenname..."
+                       required="true"
+                       data-aim-target="playerScreenname">
+                </input>
+            </label>
               <div id="aim-window">
                 <div id="aim-window-header">
                     MysteryEnt - Instant Message
