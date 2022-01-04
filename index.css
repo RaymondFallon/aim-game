@@ -58,9 +58,58 @@
     float: right;
 }
 
+#aim-toolbar {
+  border: 1px solid gray;
+  margin: 5px 5px 2px 5px;
+  padding: 2px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.toolbar-item {
+    display: inline-block;
+    min-height: 2px;
+    min-width: 10px;
+    font-weight: 600;
+}
+
+.toolbar-separator {
+    border-left: 1px solid gray;
+    height: 18px;
+}
+
+#toolbar-item-a1 { color: blue; }
+#toolbar-item-a2 {
+    background-color: blue;
+    color: lightgray;
+    padding: 0 5px 2px 5px;
+}
+#toolbar-item-a3 {
+    font-size: small;
+}
+#toolbar-item-a5 {
+    font-size: large;
+}
+#toolbar-item-b {
+    font-weight: 700;
+}
+#toolbar-item-i {
+    font-family: serif;
+    font-style: italic;
+}
+#toolbar-item-u {
+    text-decoration: underline;
+}
+#toolbar-item-link {
+    color: blue;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 #chat-input {
   width: calc(100% - 10px);
-  margin: 5px;
+  margin: 0 5px 5px 5px;
   padding: 3px;
   overflow-y: scroll;
   resize: none;
