@@ -72,6 +72,7 @@
     min-height: 2px;
     min-width: 10px;
     font-weight: 600;
+    font-family: serif;
 }
 
 .toolbar-separator {
@@ -80,27 +81,23 @@
 }
 
 #toolbar-item-a1 { color: blue; }
+
 #toolbar-item-a2 {
     background-color: blue;
     color: lightgray;
     padding: 0 5px 2px 5px;
 }
-#toolbar-item-a3 {
-    font-size: small;
-}
-#toolbar-item-a5 {
-    font-size: large;
-}
-#toolbar-item-b {
-    font-weight: 700;
-}
-#toolbar-item-i {
-    font-family: serif;
-    font-style: italic;
-}
-#toolbar-item-u {
-    text-decoration: underline;
-}
+
+#toolbar-item-a3 { font-size: small; }
+
+#toolbar-item-a5 { font-size: large; }
+
+#toolbar-item-b { font-weight: 700; }
+
+#toolbar-item-i { font-style: italic; }
+
+#toolbar-item-u { text-decoration: underline; }
+
 #toolbar-item-link {
     color: blue;
     font-style: italic;
