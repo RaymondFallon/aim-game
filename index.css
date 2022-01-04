@@ -124,9 +124,22 @@
 }
 
 #action-btn-row {
-    padding-left: 2px;
-    padding-right: 2px;
+    margin: 0 5px 4px 5px;
     min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-btn {
+    border: 1px solid gray;
+    border-radius: 1px;
+    padding: 2px 12px;
+    display: inline-block;
+    font-size: small;
+}
+
+.action-btn-symbol {
+    font-size: x-large;
 }
 
 .screenname {

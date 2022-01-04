@@ -125,24 +125,24 @@
                        rows="3"
                        data-aim-target="input"
                        data-action="keydown->aim#sendMessage"></textarea>
-                <div id="action-btn-row" class="row flex justify-between">
-                    <img src="http://coolbuddy.com/icon/buddyicons/buddy149.gif"
-                         alt="Vampire buddy icon"
-                         class="inline-block hidden">
+                <div id="action-btn-row">
                         <button id="msg-warn-btn"
-                                class="border inline-block float-right p-2"
+                                class="action-btn"
                                 data-action="aim#warn">
-                            WARN
+                            <div class="action-btn-symbol">🗲</div>
+                            Warn
                         </button>
                         <button id="msg-warn-btn"
-                                class="border inline-block float-right p-2"
+                                class="action-btn"
                                 data-action="aim#exportViaEmail">
+                            <div class="action-btn-symbol">✉</div>
                             eMail
                         </button>
                         <button id="msg-send-btn"
-                                class="border inline-block float-right p-2"
+                                class="action-btn"
                                 data-action="aim#sendMessage">
-                            SEND
+                            <div class="action-btn-symbol">➤</div>
+                            Send
                         </button>
                 </div>
               </div>
