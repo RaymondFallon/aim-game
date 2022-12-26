@@ -7,7 +7,7 @@
         <script type="module">
             import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
             window.Stimulus = Application.start()
-        
+
             Stimulus.register("aim", class extends Controller {
               static targets = [ "input", "output", "playerScreenname", "warnLevelOutput" ]
 
@@ -21,7 +21,6 @@
                 this.outputTarget.innerHTML += `<div class="chat-msg">
                                                   <span class="screenname ${klass}">${screenname}:&nbsp;</span>
                                                   <span class="msg-body">
-                                                    ${is_outgoing ? '' : 'Away Message: '}
                                                     ${msg}
                                                   </span>
                                                 </div>`
@@ -36,7 +35,7 @@
               }
 
               randomPhrase() {
-                  let phrases = ["not here!", "busy, sorry!", "go away!"]
+                  let phrases = ["What’s Up by 4 Non Blondes", "Runaway Train by Soul Asylum", "Cryin’ by Aerosmith", "Mr. Jones by Counting Crows", "Mmm Mmm Mmm Mmm by Crash Test Dummies", "Dreams by The Cranberries", "Fade Into You by Mazzy Star", "Ordinary World by Duran Duran", "Laid by James", "Disarm by The Smashing Pumpkins", "Found Out About You by Gin Blossoms", "Come Undone by Duran Duran", "Linger by The Cranberries", "Hey Jealousy by Gin Blossoms", "Everybody Hurts by R.E.M.", "The River of Dreams by Billy Joel", "Come to My Window by Melissa Etheridge", "Two Princes by Spin Doctors", "Heart-Shaped Box by Nirvana", "That’s the Way Love Goes by Janet Jackson", "Livin’ on the Edge by Aerosmith", "Are you Gonna Go My Way by Lenny Kravitz", "Right Here by SWV", "Cats in the Cradle by Ugly Kid Joe", "If by Janet Jackson", "Whatta Man by Salt n Pepa", "UNITY by Queen Latifah", "Breathe Again by Toni Braxton", "Shoop by Salt n Pepa", "It Was a Good Day by Ice Cube", "Slam by Onyx", "Zombie by The Cranberries", "Black Hole Sun by Soundgarden", "Kiss from a Rose by Seal", "Buddy Holly by Weezer", "Ode to My Family by The Cranberries", "Mary Jane’s Last Dance by Tom Petty and the Heartbreakers", "About a Girl by Nirvana", "Cantaloop (Flip Fantasia) by Us3", "Closer by Nine Inch Nails", "Glycerine by Bush", "When I Come Around by Green Day", "Shine by Collective Soul", "Because of Love by Janet Jackson", "Basket Case by Green Day", "Regulate by Warren G feat. Nate Dogg", "When Can I see You by Babyface", "Bring the Pain by Method Man", "Juicy by The Notorious B.I.G.", "I’ll Make Love to You by Boyz II Men", "I Wanna Be Down by Brandy", "Wonderwall by Oasis", "Waterfalls by TLC", "Hold Me, Thrill Me, Kiss Me, Kill Me by U2", "Just a Girl by No Doubt", "Bullet With Butterfly Wings by Smashing Pumpkins", "No More “I Love Yous” by Annie Lennox", "Spiderwebs by No Doubt", "Who Will Save Your Soul by Jewel", "Runaway by Janet Jackson", "Only Wanna Be With You by Hootie and the Blowfish", "Give Me One Reason by Tracy Chapman", "Creep by TLC", "Runnin’ by the Pharcyde", "Brown Sugar by D’Angelo", "The Sweetest Days by Vanessa Williams", "Shadowboxin’ by Gza", "Feel Me Flow by Naughty for Nature", "Freek’n You by Jodeci", "Don’t Speak by No Doubt", "Always Be My Baby by Mariah Carey", "Killing Me Softly With His Song by Fugees", "1979 by Smashing Pumpkins", "Novocaine for the Soul by Eels", "Lovefool by The Cardigans", "If It Makes You Happy by Sheryl Crow", "You Oughta Know by Alan’s Morissette", "What I Got by Sublime", "The Crossroads by Bone Thugs-N-Harmony", "Cold Rock a Party by MC Late", "Un-Break My Heart by Toni Braxton", "California Love by 2Pac", "No Diggity by Backstreet", "Doin’ It by LL Cool J", "Around the World by Daft Punk"]
                   return phrases[Math.floor(Math.random()*phrases.length)]
               }
 
@@ -47,7 +46,8 @@
                   this.addMessage(this.inputTarget.value, true)
 
                   // Add a response 1/3 of the time
-                  if (Math.random() > .66) { this.addMessage(this.randomPhrase(), false) }
+                  //   if (Math.random() > .66) { this.addMessage(this.randomPhrase(), false) }
+                  this.addMessage(this.randomPhrase(), false)
 
                   // Remove content from input
                   let me = this;
@@ -94,7 +94,7 @@
                     <span class="menu-item">Insert</span>
                     <span class="menu-item">People</span>
                     <span class="menu-item-warning">
-                        MysteryEnt's Warning Level: 
+                        MysteryEnt's Warning Level:
                         <span id='warn-level-output'
                               data-aim-target="warnLevelOutput">
                               0%
@@ -129,7 +129,7 @@
                         <button id="msg-warn-btn"
                                 class="action-btn"
                                 data-action="aim#warn">
-                            <div class="action-btn-symbol">🗲</div>
+                            <div class="action-btn-symbol">⚡</div>
                             Warn
                         </button>
                         <button id="msg-warn-btn"
